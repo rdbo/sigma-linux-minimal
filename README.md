@@ -19,5 +19,5 @@ grub-mkrescue
 # Building
 Run the following command:
 ```
-./compile.sh
+./build.sh
 ```
