@@ -13,7 +13,9 @@ find . | cpio -R root:root -H newc -o | gzip > "$ISO_DIR/initrd.gz"
 
 mkdir -p "$ISO_DIR/boot/grub"
 cat << EOF > "$ISO_DIR/boot/grub/grub.cfg"
-GRUB_TERMINAL_INPUT="console serial"
+insmod all_video
+insmod gfxterm
+GRUB_TERMINAL_OUTPUT="console"
 menuentry "Sigma Linux" {
     linux /$KERNEL_IMAGE
     initrd /initrd.gz

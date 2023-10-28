@@ -9,6 +9,8 @@ awk
 cpio
 gzip
 tar
+xz
+time
 gcc
 make
 grub-bios
