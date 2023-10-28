@@ -6,19 +6,33 @@ echo "[*] Making ISO file..."
 
 mkdir -p "$ISO_DIR"
 
-cp "$KERNEL_DIR/arch/$ARCH/boot/bzImage" "$ISO_DIR/$KERNEL_IMAGE"
+kernel_path="boot/$KERNEL_IMAGE"
+cp "$KERNEL_DIR/arch/$ARCH/boot/bzImage" "$ISO_DIR/$kernel_path"
 
 cd "$ROOTFS_DIR"
-find . | cpio -R root:root -H newc -o | gzip > "$ISO_DIR/initrd.gz"
+initrd_path="boot/initrd"
+find . | cpio -R root:root -H newc -o | gzip > "$ISO_DIR/$initrd_path"
 
 mkdir -p "$ISO_DIR/boot/grub"
+cp "$ROOTDIR/src/grub-wallpaper.png" "$ISO_DIR/boot/grub/wallpaper.png"
 cat << EOF > "$ISO_DIR/boot/grub/grub.cfg"
 insmod all_video
 insmod gfxterm
-GRUB_TERMINAL_OUTPUT="console"
+
+loadfont /boot/grub/fonts/unicode.pf2
+
+set timeout=5
+set gfxmode=640x480
+terminal_output gfxterm
+
+insmod png
+background_image /boot/grub/wallpaper.png
+
 menuentry "Sigma Linux" {
-    linux /$KERNEL_IMAGE
-    initrd /initrd.gz
+    echo "Loading vmlinuz..."
+    linux /$kernel_path
+    echo "Loading initrd..."
+    initrd /$initrd_path
 }
 EOF
 
