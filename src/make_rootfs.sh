@@ -31,7 +31,7 @@ mount -t devtmpfs none /dev
 mount -t proc none /proc
 mount -t sysfs none /sys
 mount -t tmpfs none /tmp
-mkdir -p /dev/devpts
+mkdir -p /dev/pts
 mount -t devpts none /dev/pts
 mdev -s
 setsid cttyhack /bin/sh
