@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e # die on error
+
 export ROOTDIR="$(pwd)/.."
 export CACHEDIR="$ROOTDIR/cache"
 export MAX_THREADS="$(nproc --ignore=2)"
@@ -23,6 +25,11 @@ export LIBC_VER="2.38"
 export LIBC_URL="https://ftp.gnu.org/gnu/glibc/glibc-${LIBC_VER}.tar.xz"
 export LIBC_DIR="$CACHEDIR/libc"
 export LIBC_BUILD_DIR="$LIBC_DIR/build"
+
+export BINUTILS_VER="2.40.90"
+export BINUTILS_URL="https://sourceware.org/pub/binutils/snapshots/binutils-${BINUTILS_VER}.tar.xz"
+export BINUTILS_DIR="$CACHEDIR/binutils"
+export BINUTILS_BUILD_DIR="$BINUTILS_DIR/build"
 
 # Bash is required by some tools, like `ldd`, shipped with `glibc`
 export BASH_VER="5.2.15"

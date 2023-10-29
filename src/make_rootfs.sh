@@ -17,6 +17,9 @@ make install CONFIG_PREFIX="$ROOTFS_DIR"
 cd "$LIBC_BUILD_DIR"
 make -j "$MAX_THREADS" install DESTDIR="$ROOTFS_DIR"
 
+cd "$BINUTILS_BUILD_DIR"
+make -j "$MAX_THREADS" install DESTDIR="$ROOTFS_DIR"
+
 cd "$BASH_BUILD_DIR"
 make -j "$MAX_THREADS" install DESTDIR="$ROOTFS_DIR"
 
