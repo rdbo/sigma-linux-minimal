@@ -2,7 +2,7 @@
 
 export ROOTDIR="$(pwd)/.."
 export CACHEDIR="$ROOTDIR/cache"
-export MAX_THREADS="2"
+export MAX_THREADS="$(nproc --ignore=2)"
 export ARCH="$(uname -m)"
 export ROOTFS_DIR="$CACHEDIR/rootfs"
 export ISO_DIR="$CACHEDIR/iso"
@@ -18,6 +18,10 @@ export KERNEL_IMAGE="vmlinuz"
 export BUSYBOX_VER="1.36.1"
 export BUSYBOX_URL="https://busybox.net/downloads/busybox-${BUSYBOX_VER}.tar.bz2"
 export BUSYBOX_DIR="$CACHEDIR/busybox"
+
+export LIBC_VER="2.38"
+export LIBC_URL="https://ftp.gnu.org/gnu/glibc/glibc-${LIBC_VER}.tar.xz"
+export LIBC_DIR="$CACHEDIR/libc"
 
 if [ ! -d "$CACHEDIR" ]; then
   mkdir -p "$CACHEDIR"

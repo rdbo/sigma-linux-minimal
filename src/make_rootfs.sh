@@ -14,6 +14,9 @@ mkdir -p "$ROOTFS_DIR"
 cd "$BUSYBOX_DIR"
 make install CONFIG_PREFIX="$ROOTFS_DIR"
 
+cd "$LIBC_DIR/build"
+make -j "$MAX_THREADS" install DESTDIR="$ROOTFS_DIR"
+
 cd "$ROOTFS_DIR"
 mkdir -p proc dev sys tmp
 cat << EOF > init
