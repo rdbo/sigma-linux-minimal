@@ -11,6 +11,9 @@ fi
 
 mkdir -p "$ROOTFS_DIR"
 
+cd "$KERNEL_DIR"
+make -j "$MAX_THREADS" modules_install INSTALL_MOD_PATH="$ROOTFS_DIR"
+
 cd "$BUSYBOX_DIR"
 make install CONFIG_PREFIX="$ROOTFS_DIR"
 

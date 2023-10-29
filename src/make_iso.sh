@@ -4,9 +4,12 @@ echo "[*] Making ISO file..."
 
 . ./config.sh
 
+rm -rf "$ISO_DIR"
 mkdir -p "$ISO_DIR"
 
-kernel_path="boot/$KERNEL_IMAGE"
+kernel_dir="boot"
+kernel_path="$kernel_dir/$KERNEL_IMAGE"
+mkdir -p "$ISO_DIR/$kernel_dir"
 cp "$KERNEL_DIR/arch/$ARCH/boot/bzImage" "$ISO_DIR/$kernel_path"
 
 cd "$ROOTFS_DIR"
