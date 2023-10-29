@@ -4,4 +4,4 @@
 
 echo "[*] Building kernel..."
 cd "$KERNEL_DIR"
-time make -j "$MAX_THREADS" mrproper alldefconfig bzImage modules
+time make -j "$MAX_THREADS" mrproper defconfig bzImage modules
