@@ -22,6 +22,13 @@ export BUSYBOX_DIR="$CACHEDIR/busybox"
 export LIBC_VER="2.38"
 export LIBC_URL="https://ftp.gnu.org/gnu/glibc/glibc-${LIBC_VER}.tar.xz"
 export LIBC_DIR="$CACHEDIR/libc"
+export LIBC_BUILD_DIR="$LIBC_DIR/build"
+
+# Bash is required by some tools, like `ldd`, shipped with `glibc`
+export BASH_VER="5.2.15"
+export BASH_URL="https://ftp.gnu.org/gnu/bash/bash-${BASH_VER}.tar.gz"
+export BASH_DIR="$CACHEDIR/bash"
+export BASH_BUILD_DIR="$BASH_DIR/build"
 
 if [ ! -d "$CACHEDIR" ]; then
   mkdir -p "$CACHEDIR"

@@ -5,11 +5,10 @@
 cd "$LIBC_DIR"
 
 echo "[*] Modifying libc config..."
-rm -rf build
-mkdir -p build
-cd build
-../configure --prefix="/usr"
-make -j "$MAX_THREADS"
+rm -rf "$LIBC_BUILD_DIR"
+mkdir -p "$LIBC_BUILD_DIR"
+cd "$LIBC_BUILD_DIR"
+"$LIBC_DIR/configure" --prefix="/usr"
 
 echo "[*] Building libc..."
 time make -j "$MAX_THREADS"
