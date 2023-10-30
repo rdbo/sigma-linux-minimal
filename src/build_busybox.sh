@@ -4,8 +4,10 @@
 
 cd "$BUSYBOX_DIR"
 
-echo "[*] Modifying busybox config..."
+echo "[*] Cleaning up before busybox build..."
 make -j "$MAX_THREADS" distclean
+
+echo "[*] Configuring busybox..."
 make defconfig
 # modify: # CONFIG_STATIC is not set
 tmp_config="$CACHEDIR/tmp_config"
