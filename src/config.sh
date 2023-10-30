@@ -18,19 +18,24 @@ export KERNEL_URL="https://cdn.kernel.org/pub/linux/kernel/v${KERNEL_MAJOR}.x/li
 export KERNEL_DIR="$CACHEDIR/kernel"
 export KERNEL_IMAGE="vmlinuz"
 
-export BUSYBOX_VER="1.36.1"
-export BUSYBOX_URL="https://busybox.net/downloads/busybox-${BUSYBOX_VER}.tar.bz2"
-export BUSYBOX_DIR="$CACHEDIR/busybox"
-
 export LIBC_VER="2.38"
 export LIBC_URL="https://ftp.gnu.org/gnu/glibc/glibc-${LIBC_VER}.tar.xz"
 export LIBC_DIR="$CACHEDIR/libc"
 export LIBC_BUILD_DIR="$LIBC_DIR/build"
 
+export BUSYBOX_VER="1.36.1"
+export BUSYBOX_URL="https://busybox.net/downloads/busybox-${BUSYBOX_VER}.tar.bz2"
+export BUSYBOX_DIR="$CACHEDIR/busybox"
+
 export BINUTILS_VER="2.40.90"
 export BINUTILS_URL="https://sourceware.org/pub/binutils/snapshots/binutils-${BINUTILS_VER}.tar.xz"
 export BINUTILS_DIR="$CACHEDIR/binutils"
 export BINUTILS_BUILD_DIR="$BINUTILS_DIR/build"
+
+export CC_VER="13.2.0"
+export CC_URL="https://ftp.gnu.org/gnu/gcc/gcc-${CC_VER}/gcc-${CC_VER}.tar.xz"
+export CC_DIR="$CACHEDIR/cc"
+export CC_BUILD_DIR="$CC_DIR/build"
 
 # Bash is required by some tools, like `ldd`, shipped with `glibc`
 export BASH_VER="5.2.15"
