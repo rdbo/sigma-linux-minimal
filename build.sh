@@ -5,10 +5,11 @@ cd src
 ./get_kernel.sh &&
 ./patch_kernel.sh &&
 ./build_kernel.sh &&
-./get_busybox.sh &&
-./build_busybox.sh &&
 ./get_libc.sh &&
 ./build_libc.sh &&
+./setup_sysroot.sh &&
+./get_busybox.sh &&
+./build_busybox.sh &&
 ./get_binutils.sh &&
 ./build_binutils.sh &&
 ./get_bash.sh &&

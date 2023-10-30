@@ -6,6 +6,7 @@ export ROOTDIR="$(pwd)/.."
 export CACHEDIR="$ROOTDIR/cache"
 export MAX_THREADS="$(nproc --ignore=2)"
 export ARCH="$(uname -m)"
+export BITS="$(getconf LONG_BIT)" # 64 or 32
 export ROOTFS_DIR="$CACHEDIR/rootfs"
 export ISO_DIR="$CACHEDIR/iso"
 export OUT_DIR="$CACHEDIR/out"
