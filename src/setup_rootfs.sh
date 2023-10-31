@@ -15,6 +15,8 @@ make -j "$MAX_THREADS" install DESTDIR="$ROOTFS_DIR"
 cd "$CC_BUILD_DIR"
 make -j "$MAX_THREADS" install-gcc DESTDIR="$ROOTFS_DIR"
 make -j "$MAX_THREADS" install-target-libgcc DESTDIR="$ROOTFS_DIR"
+cd "$ROOTFS_DIR/usr/bin"
+ln -s gcc cc
 
 echo "[*] Adding busybox to rootfs for chroot facilities..." # NOTE: maybe needs to be removed afterwards???
 cd "$BUSYBOX_DIR"

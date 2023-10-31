@@ -2,6 +2,8 @@
 
 set -e # die on error
 
+# TODO: Run config only once
+
 export ROOTDIR="$(pwd)/.."
 export CACHEDIR="$ROOTDIR/cache"
 export MAX_THREADS="$(nproc --ignore=2)"
@@ -28,10 +30,16 @@ export BUSYBOX_VER="1.36.1"
 export BUSYBOX_URL="https://busybox.net/downloads/busybox-${BUSYBOX_VER}.tar.bz2"
 export BUSYBOX_DIR="$CACHEDIR/busybox"
 
+# Required for GCC
 export BINUTILS_VER="2.40.90"
 export BINUTILS_URL="https://sourceware.org/pub/binutils/snapshots/binutils-${BINUTILS_VER}.tar.xz"
 export BINUTILS_DIR="$CACHEDIR/binutils"
 export BINUTILS_BUILD_DIR="$BINUTILS_DIR/build"
+
+# Required for GCC
+export ZSTD_VER="1.5.5"
+export ZSTD_URL="https://github.com/facebook/zstd/releases/download/v${ZSTD_VER}/zstd-${ZSTD_VER}.tar.gz"
+export ZSTD_DIR="$CACHEDIR/zstd"
 
 export CC_VER="13.2.0"
 export CC_URL="https://ftp.gnu.org/gnu/gcc/gcc-${CC_VER}/gcc-${CC_VER}.tar.xz"
