@@ -8,6 +8,8 @@ cd src
 ./build_kernel.sh
 ./get_libc.sh
 ./build_libc.sh
+./get_zstd.sh
+./build_zstd.sh
 ./setup_sysroot.sh
 ./get_busybox.sh
 ./build_busybox.sh
