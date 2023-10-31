@@ -13,7 +13,7 @@ echo "[*] Configuring CC..."
 
 "$CC_DIR/configure" \
     --prefix="/usr" \
-    --with-sysroot="$ROOTFS_DIR" \
+    --with-build-sysroot="$ROOTFS_DIR" \
     --disable-multilib \
     --disable-nls \
     --disable-libsanitizer \
