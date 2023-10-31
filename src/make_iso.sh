@@ -11,6 +11,7 @@ kernel_dir="boot"
 kernel_path="$kernel_dir/$KERNEL_IMAGE"
 mkdir -p "$ISO_DIR/$kernel_dir"
 cp "$KERNEL_DIR/arch/$ARCH/boot/bzImage" "$ISO_DIR/$kernel_path"
+cp "$KERNEL_DIR/.config" "$ISO_DIR/boot/config-$KERNEL_IMAGE"
 
 cd "$INITRD_DIR"
 initrd_path="boot/initrd"
