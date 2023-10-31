@@ -15,7 +15,6 @@ echo "[*] Configuring CC..."
     --prefix="/usr" \
     --with-sysroot="$ROOTFS_DIR" \
     --disable-multilib \
-    --disable-boostrap \
     --disable-nls \
     --disable-libsanitizer \
     --enable-languages=c,c++
