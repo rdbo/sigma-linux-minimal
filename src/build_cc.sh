@@ -10,7 +10,16 @@ mkdir -p "$CC_BUILD_DIR"
 cd "$CC_BUILD_DIR"
 
 echo "[*] Configuring CC..."
-"$CC_DIR/configure" --prefix="/usr" --with-sysroot="$ROOTFS_DIR" --disable-multilib # TODO: Add support for 32 bits as well on a 64 bit system
+
+"$CC_DIR/configure" \
+    --prefix="/usr" \
+    --with-sysroot="$ROOTFS_DIR" \
+    --disable-multilib \
+    --disable-boostrap \
+    --disable-nls \
+    --disable-libsanitizer \
+    --enable-languages=c,c++
 
 echo "[*] Building CC..."
-time make -j "$MAX_THREADS"
+time make -j "$MAX_THREADS" all-gcc
+time make -j "$MAX_THREADS" all-target-libgcc
