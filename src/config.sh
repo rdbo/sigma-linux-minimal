@@ -11,6 +11,7 @@ export ROOTFS_DIR="$CACHEDIR/rootfs"
 export ISO_DIR="$CACHEDIR/iso"
 export OUT_DIR="$CACHEDIR/out"
 export ISO_FILE="$OUT_DIR/sigma-linux-minimal.iso"
+export INITRD_DIR="$CACHEDIR/initrd"
 
 export KERNEL_VER="6.5.9"
 export KERNEL_MAJOR="$(echo $KERNEL_VER | awk -F '.' '{ print $1 }')"

@@ -12,7 +12,7 @@ kernel_path="$kernel_dir/$KERNEL_IMAGE"
 mkdir -p "$ISO_DIR/$kernel_dir"
 cp "$KERNEL_DIR/arch/$ARCH/boot/bzImage" "$ISO_DIR/$kernel_path"
 
-cd "$ROOTFS_DIR"
+cd "$INITRD_DIR"
 initrd_path="boot/initrd"
 find . | cpio -R root:root -H newc -o | gzip > "$ISO_DIR/$initrd_path"
 
@@ -38,6 +38,9 @@ menuentry "Sigma Linux" {
     initrd /$initrd_path
 }
 EOF
+
+rootfs_file="squash.rootfs"
+mksquashfs "$ROOTFS_DIR" "$ISO_DIR/$rootfs_file" # TODO: Tune this command for better results
 
 mkdir -p "$OUT_DIR"
 

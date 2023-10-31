@@ -15,7 +15,9 @@ cd src
 ./build_binutils.sh
 ./get_cc.sh
 ./build_cc.sh
+./setup_rootfs.sh
 ./get_bash.sh
 ./build_bash.sh
 ./make_rootfs.sh
+./make_initrd.sh
 ./make_iso.sh
