@@ -4,5 +4,15 @@
 
 echo "[*] Building kernel..."
 cd "$KERNEL_DIR"
-# TODO: Copy kernel config before building
-time make -j "$MAX_THREADS" mrproper defconfig bzImage modules
+
+make -j "$MAX_THREADS" mrproper
+
+kernel_config="$SRCDIR/kernel-config"
+
+if [ -f "$kernel_config" ]; then
+    cp "$kernel_config" ./.config
+else
+    make defconfig
+fi
+
+time make -j "$MAX_THREADS" bzImage modules

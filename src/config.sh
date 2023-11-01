@@ -5,6 +5,7 @@ set -e # die on error
 # TODO: Run config only once
 
 export ROOTDIR="$(pwd)/.."
+export SRCDIR="$ROOTDIR/src"
 export CACHEDIR="$ROOTDIR/cache"
 export MAX_THREADS="$(nproc --ignore=2)"
 export ARCH="$(uname -m)"
